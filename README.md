@@ -2,21 +2,23 @@
 
 ## How this tutorial works.
 
-This tutorial will cover the steps in adding [react.rb](http://reactrb.org) and react components (written in Ruby of course) to a simple rails Todo app. 
+This tutorial will cover the steps in adding [reactrb](http://reactrb.org) and react components (written in Ruby of course) to a simple rails Todo app.
 
 ![](todo-chapter-1.png?raw=true)
 
-The tutorial is organized as a series of tagged branches in this repo.  You are currently on the `master` branch, which is the introduction (i.e. chapter 1).
+The tutorial is organized as a series of branches in this repo.  You are currently on the `master` branch, which is the introduction (i.e. chapter 1).
 
 The remaining branches are named `chapter-2`, `chapter-3`, etc.
 
 In each branch the `README` file will be the next chapter of the tutorial.
 
+If you want to skip straight to the end then checkout `chapter-8-conclusion`.  
+
 As you complete each chapter there is a test spec, which will pass if you have completed the instructions in the chapter.
 
 At the end of each chapter you can move to the next tagged branch, where the changes described in the previous chapter will be stored
 
-For example in this chapter we are going to add the `reactive_ruby_generator` gem to the app, and use it to install react.rb, reactive-record and reactive-router.
+For example in this chapter we are going to add the `reactrb-ruby-generator` gem to the app, and use it to install react.rb, reactive-record and reactive-router.
 
 To see the results of these changes you can view the `02-adding-a-react-component` chapter.
 
@@ -34,8 +36,8 @@ Some chapters (like this one) have extra notes at the end of the page with detai
 In this chapter we are going to:
 
 1. create a new rails app
-2. add the `reactive_rails_generator` gem, as well as set of gems used in testing
-3. use the `reactive_rails_generator` gem to add everything we need to use react.rb
+2. add the `reactrb-rails-generator` gem, as well as set of gems used in testing
+3. use the `reactrb-rails-generator` gem to add everything we need to use Reactrb
 4. add a simple Todo model to our app
 5. test our work
 
@@ -56,11 +58,11 @@ with some of the test harnesses.
 
 #### Adding the Gems
 
-Now we want to edit the Gemfile and add the reactive_rails_generator gem plus a bunch of gems used for driving the testing in this tutorial.  Make the end of the Gemfile look like this:
+Now we want to edit the Gemfile and add the reactrb-rails-generator gem plus a bunch of gems used for driving the testing in this tutorial.  Make the end of the Gemfile look like this:
 
 ```ruby
 group :development do
-  gem 'reactive_rails_generator'
+  gem 'reactrb-rails-generator'
 end
 
 group :test do
@@ -88,11 +90,11 @@ group :test do
 end
 ```
 
-#### Run the Reactive Rails Generator
+#### Run the Reactrb Rails Generator
 
-Okay lets update our gems, and use the reactive_rails_generator to add everything you need to begin react.rb development:
+Okay lets update our gems, and use the reactrb-rails-generator to add everything you need to begin Reactrb development:
 
-1. make sure you added `gem 'reactive_rails_generator'` to the development section of your app Gemfile (per above instructions)
+1. make sure you added `gem 'reactrb-rails-generator'` to the development section of your app Gemfile (per above instructions)
 2. run `bundle install`
 3. run `bundle exec rails g reactrb:install --all`
 4. run `bundle update`
@@ -123,7 +125,7 @@ end
 
 Finally we will be accessing our Todo data on client, so we want to *move* the `todo.rb` file into the `app/models/public` directory
 
-In our case we are going to make the `Todo` model public by moving it from  `app/models` to `app/models/public/`.
+Any models in the public directory will be compiled for use on both the client and the server.
 
 #### Running the test
 
