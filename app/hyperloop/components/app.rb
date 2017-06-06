@@ -29,7 +29,7 @@ module Components
         # .on(:drag_start) do |ev|
         #   `#{ev.native_event}.native.dataTransfer.setData("element", #{self})`
         # end
-
+        
         Header()
         Route('/', exact: true) { Redirect('/all') }
         Route('/:filter', mounts: Index) # maybe pass block to validate here...

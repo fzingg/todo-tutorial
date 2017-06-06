@@ -6,6 +6,7 @@ module Components
     state editing: false
 
     def render
+
       li.todo_item do
         # change what we render depending on the state of editing
         if state.editing
@@ -19,6 +20,7 @@ module Components
             # update our todo param's completed value and save it
             params.todo.completed = !params.todo.completed
             params.todo.save
+
           end
           # when the user double clicks on the todo tile change our state to editing
           label(draggable: 'true') { params.todo.title }
@@ -30,7 +32,7 @@ module Components
             ev.prevent_default
             todo = Todo.find(`#{ev.native_event}.native.dataTransfer.getData("todo")`.to_i)
             puts "dropping #{todo.title} on #{params.todo.title}"
-            #{}`#{ev.target}.native.appendChild(document.getElementById(data))`
+            `#{ev.target}.native.appendChild(document.getElementById(data))`
           end
           .on(:drag_over) { |ev| ev.prevent_default }
           # and when the user clicks on the destroy anchor tag, destroy the todo

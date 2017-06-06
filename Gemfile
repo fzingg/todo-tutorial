@@ -79,7 +79,7 @@ gem 'opal_hot_reloader', :groups => [:development]
 gem 'hyper-console', :groups => [:development, :test]
 
 group :test do
-  gem "hyper-spec", path: '../hyper-spec'
+  gem "hyper-spec"
   #gem "rspec"
   #gem "rspec-mocks"
   #gem "rspec-expectations"

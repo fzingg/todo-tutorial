@@ -9,6 +9,7 @@ module Components
     state(:new_todo) { Todo.new } # initialize when Header is mounted
 
     render(HEADER, class: :header) do
+      puts "Todo: #{Todo.completed.first}"
       H1 { "Todos" }
       # Display an EditItem component in the header, and
       # as each Todo is saved, update the value of the new_todo state

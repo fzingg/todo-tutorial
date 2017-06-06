@@ -32,6 +32,7 @@ module Components
     render(UL, class: 'todo-list') do
       # send the current filter name to the Todo class to get the
       # current todos for that scope
+      
       Todo.send(match.params[:filter]).each do |todo|
         TodoItem todo: todo
       end
